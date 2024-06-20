@@ -1,27 +1,21 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Category } from "../Utlis/CategoryUtlis";
-import { SearchContext } from "../context/SearchContext";
-import SearchBook from "./SearchBook";
-import { Link, useNavigate } from "react-router-dom";
+import { Maincontext } from "../context/MainContext";
+import { useNavigate } from "react-router-dom";
 const HomeComponent = () => {
-  const searchvalue = useRef<HTMLInputElement>(null);
-  const { SearchByinput, SearchbySubject } = useContext(SearchContext) || {};
-  // Navigate
+  const searchvalue = useRef(null);
+  const {FetchBySubjects,FetchByInputs}=useContext(Maincontext)
   const navigate = useNavigate();
-  const SearchByinputValue = (e: React.FormEvent<HTMLFormElement>) => {
+  const SearchByinputValue = async (e) => {
     e.preventDefault();
     const Tempvalue = searchvalue.current?.value.trim() || "";
-    if (SearchByinput) {
-      SearchByinput(Tempvalue);
-      navigate("/Books");
-    }
+    await FetchByInputs(Tempvalue);
+    navigate("/Books");
   };
-  const CategoryClick = (item: string) => {
-    if (SearchbySubject) {
-      SearchbySubject(item);
-      navigate("/Books");
-    }
+  const CategoryClick = (item) => {
+    FetchBySubjects(item);
+    navigate("/Books");
   };
   return (
     <main className="w-full  mt-10 ">

@@ -9,12 +9,7 @@ import logo from "../assets/logo.png";
 
 
 const Sidebar = () => {
-  const [geturl, seturl] = useState("/");
   const [showSidebar, setShowSidebar] = useState(false);
-  const location = useLocation();
-  useEffect(() => {
-    seturl(location.pathname);
-  }, [location.pathname]);
   const Menuitem = [
     {
       name: "Home",

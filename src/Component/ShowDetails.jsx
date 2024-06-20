@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate, useParams } from "react-router-dom";
+import LoadingAni from "./LoadingAni";
+import notfound from '../assets/notfound.jpg'
 
 const ShowDetails = () => {
   const [bookDetails, setBookDetails] = useState({ title: "", description: "", cover_img: "" });
@@ -18,7 +20,7 @@ const ShowDetails = () => {
         const newBook = {
           description: description ? description.value : "No description found",
           title: title,
-          cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : "",
+          cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : notfound,
           subject_places: subject_places ? subject_places.join(", ") : "No subject places found",
           subject_times: subject_times ? subject_times.join(", ") : "No subject times found",
           subjects: subjects ? subjects.join(", ") : "No subjects found"
@@ -36,7 +38,7 @@ const ShowDetails = () => {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <LoadingAni />;
   }
 
   return (

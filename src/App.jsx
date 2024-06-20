@@ -1,8 +1,9 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Sidebar from "./Component/Sidebar";
 import HomeComponent from "./Component/HomeComponent";
-import ShowDetails from "./Component/ShowDetails";
 import SearchBook from "./Component/SearchBook";
+import ShowDetails from "./Component/ShowDetails";
+
 
 const Layout = () => {
   return (

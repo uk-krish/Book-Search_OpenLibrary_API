@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Make some default color */
+:root{
+   --color-bg:#edeae1;
+    --color-button:#fcdbbe;
+    --color-text:#131419;
+}
+
+body{
+    background-color: #edede9;
+    color: var(--color-text);
+}
+.button_color{
+    background: var(--color-button);
+    color: var(--color-text);
+}
+.text{
+    color: var(--color-text);
+}
+
+.active{
+    background-color: #e86252;
+    color: white;
+}
+.popup {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-bg);
+    border-radius: 7px;
+    padding: 20px;
+    box-shadow: 0 0 10px 0px var(--color-bg);
+}
